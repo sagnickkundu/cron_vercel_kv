@@ -9,9 +9,9 @@ export async function GET(request: Request) {
     return new Response("Invalid token", { status: 401 });
   }
 
-  const newName = searchParams.get("name");
+  const timestamp = new Date().toLocaleTimeString();
 
-  await updateTest(newName || "Default Name");
+  await updateTest(timestamp);
 
   const name = await getTest();
 
